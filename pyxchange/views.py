@@ -1,13 +1,13 @@
 from django.shortcuts import render
-
+from django.http import HttpResponse
 
 def index(request):
-    pass
+    return HttpResponse('Main View')
 
 
 def popular(request):
-    pass
+    return HttpResponse('Popular Image View')
 
 
 def pic_detail(request, key):
-    pass
+    return HttpResponse('Image Page View')
