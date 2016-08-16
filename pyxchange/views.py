@@ -1,3 +1,13 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def index(request):
+    pass
+
+
+def popular(request):
+    pass
+
+
+def pic_detail(request, key):
+    pass
