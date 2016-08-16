@@ -1,7 +1,10 @@
+from django.contrib.auth.models import Permission, User
 from django.db import models
 
 
-class Picstorage(models.Model):
+class Image(models.Model):
+    # For future auth feature implementation
+    # user = models.ForeignKey(User, default=1)
     pic = models.ImageField()
     desc = models.CharField(max_length=1000)
     key = models.SlugField(unique=True)
@@ -11,4 +14,4 @@ class Picstorage(models.Model):
     like_count = models.PositiveIntegerField(default=0)
 
     def __str__(self):
-        return self.pic
+        return '{} - {}'.format(self.key, self.desc)
