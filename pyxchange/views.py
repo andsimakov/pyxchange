@@ -30,4 +30,4 @@ def pic_detail(request, key):
 
 class ImageCreate(CreateView):
     model = Image
-    fields = ['img', ]
+    fields = ['img', 'desc', 'key', 'upl_date', 'rev_date', 'rev_count', 'like_count']
