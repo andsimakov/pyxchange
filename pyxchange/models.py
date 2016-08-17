@@ -16,8 +16,8 @@ class Image(models.Model):
     rev_count = models.PositiveIntegerField('Reviews', default=0)
     like_count = models.PositiveIntegerField('Likes', default=0)
 
-    # def get_absolute_url(self):
-    #     return reverse('pyxchange:index', kwargs={'pk': self.pk})
+    def get_absolute_url(self):
+        return reverse('pyxchange:detail', kwargs={'pk': self.pk})
 
     def __str__(self):
         return '{} - {}'.format(self.key, self.desc)
@@ -26,4 +26,3 @@ class Image(models.Model):
     def create_key():
         key = base56.encode(randint(0, 0x7fffffff))
         return key
-

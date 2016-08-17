@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from datetime import datetime
-from .models import Image
 from django.views.generic.edit import CreateView
+from django.views import generic
+
+from .models import Image
 
 
 def index(request):
@@ -24,10 +26,15 @@ def popular(request):
     return HttpResponse('Popular Image View')
 
 
-def pic_detail(request, key):
-    return HttpResponse('Image Page View')
+def all(request):
+    return HttpResponse('All Image View')
+
+
+class DetailView(generic.DetailView):
+    model = Image
+    template_name = 'pyxchange/detail.html'
 
 
 class ImageCreate(CreateView):
     model = Image
-    fields = ['img', 'desc', 'key', 'upl_date', 'rev_date', 'rev_count', 'like_count']
+    fields = ['img', 'desc', 'key', 'upl_date', 'rev_date']
