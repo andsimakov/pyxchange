@@ -1,5 +1,5 @@
 {% extends 'pyxchange/base.html' %}
-{% block title %}{{ pk }} image{% endblock %}
+{% block title %}{{ image.slug }}{% endblock %}
 
 {% block body %}
     <img src="{{ image.img.url }}" width="500">
