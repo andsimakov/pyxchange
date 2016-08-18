@@ -1,12 +1,12 @@
-from django.shortcuts import render
-from django.http import HttpResponse
 from datetime import datetime
+from django.shortcuts import render, redirect
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic.edit import CreateView
 from django.views import generic
-
-from django.forms import ModelForm
+from django.core.urlresolvers import reverse
 
 from .models import Image
+from .utils import generate_slug
 
 
 class ImageCreate(CreateView):
@@ -19,24 +19,23 @@ class DetailView(generic.DetailView):
     template_name = 'pyxchange/detail.html'
 
 
-# def index(request):
-#     if request.method == 'GET':
-#         return render(request, 'pyxchange/index.html')
-#     elif request.method == 'POST':
-#         img = request.FILES.get('image')
-#         desc = request.POST.get('desc')
-#         Image.objects.create(
-#             img=img,
-#             desc=desc,
-#             slug=Image.create_key(),
-#             upl_date=datetime.now(),
-#             rev_date=datetime.now())
-#         return render(request, 'pyxchange/index.html')
-
-
 def popular(request):
     return HttpResponse('Popular Image View')
 
 
 def all(request):
     return HttpResponse('All Image View')
+
+
+def index(request):
+    if request.method == 'POST':
+        new_image = Image()
+        new_image.img = request.FILES['image']
+        new_image.desc = request.POST.get('desc')
+        new_image.slug = generate_slug()
+        new_image.upl_date = datetime.now()
+        new_image.save()
+
+        return render(request, 'pyxchange/detail', {'slug': new_image.slug})
+    else:
+        return render(request, 'pyxchange/index.html')

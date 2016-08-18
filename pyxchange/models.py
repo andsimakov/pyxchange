@@ -2,8 +2,8 @@ from django.contrib.auth.models import Permission, User
 from django.db import models
 from datetime import datetime
 from django.core.urlresolvers import reverse
-
-from .utils import generate_slug
+from random import randint
+from django.utils.baseconv import base56
 
 
 class Image(models.Model):
@@ -13,10 +13,9 @@ class Image(models.Model):
                             upload_to='%I')
     desc = models.CharField('Description',
                             max_length=500,
-                            help_text='Up to 500 fancy schmancy characters')
+                            help_text='Up to 500 characters')
     slug = models.SlugField(max_length=6,
-                            unique=True,
-                            default=generate_slug())
+                            unique=True)
     upl_date = models.DateTimeField('Uploaded',
                                     default=datetime.now)
     rev_date = models.DateTimeField('Last reviewed',
@@ -31,3 +30,8 @@ class Image(models.Model):
 
     def __str__(self):
         return '{} - {}'.format(self.slug, self.desc)
+
+    @staticmethod
+    def generate_slug():
+        slug = base56.encode(randint(0, 0x7fffffff))
+        return slug
