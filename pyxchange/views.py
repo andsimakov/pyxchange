@@ -12,7 +12,7 @@ from django.utils.baseconv import base56
 
 from .models import Image
 
-IMAGE_COUNT = 5
+IMAGE_COUNT = 7
 
 class ImageCreate(CreateView):
     model = Image
@@ -66,5 +66,5 @@ def show_popular(request):
 
 
 def show_all(request):
-    images = Image.objects.all()
+    images = Image.objects.order_by('-upl_date')
     return render(request, 'pyxchange/all.tpl', {'images': images})
