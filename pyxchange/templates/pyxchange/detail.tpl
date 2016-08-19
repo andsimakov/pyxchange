@@ -2,7 +2,7 @@
 {% block title %}{{ image.slug }}{% endblock %}
 
 {% block body %}
-    <img src="{{ image.img.url }}" width="500">
+    <a href="javascript:window.history.back()"><img src="{{ image.img.url }}" width="600" alt="Back" title="Back"></a>
     <h1>{{ image.desc }}</h1>
     <ul>
         <li>Uploaded: {{ image.upl_date }}</li>

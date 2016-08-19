@@ -26,10 +26,10 @@
                 <!-- Items -->
                 <div class="collapse navbar-collapse" id="topNavBar">
                     <ul class="nav navbar-nav">
-                        <li class="{% block all_active %}{% endblock %}"><a href="{% url 'pyxchange:all' %}">All</a></li>
+                        <li class="{% block popular_active %}{% endblock %}"><a href="{% url 'pyxchange:popular' %}">Popular</a></li>
                     </ul>
                     <ul class="nav navbar-nav">
-                        <li class="{% block popular_active %}{% endblock %}"><a href="{% url 'pyxchange:popular' %}">Popular</a></li>
+                        <li class="{% block all_active %}{% endblock %}"><a href="{% url 'pyxchange:all' %}">All</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>

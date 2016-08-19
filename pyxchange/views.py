@@ -12,24 +12,17 @@ from django.utils.baseconv import base56
 
 from .models import Image
 
-IMAGE_COUNT = 7
-
-class ImageCreate(CreateView):
-    model = Image
-    fields = ['img', 'desc']
+IMAGE_COUNT = 12
 
 
-class ImageView(generic.DetailView):
-    model = Image
-    template_name = 'pyxchange/detail.tpl'
-
-
-def show_popular(request):
-    return HttpResponse('Popular Image View')
-
-
-def show_all(request):
-    return HttpResponse('All Image View')
+# class ImageCreate(CreateView):
+#     model = Image
+#     fields = ['img', 'desc']
+#
+#
+# class ImageView(generic.DetailView):
+#     model = Image
+#     template_name = 'pyxchange/detail.tpl'
 
 
 def gen_slug():

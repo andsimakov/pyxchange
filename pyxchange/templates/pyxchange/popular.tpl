@@ -4,8 +4,6 @@
 
 {% block body %}
     {% for pict in images %}
-        <a href="{% url 'pyxchange:detail' pict.slug %}"><img src="{{ pict.img.url }}" width="100"  alt="{{ pict.desc }}" title="{{ pict.desc }} /></a>
+        <a href="{% url 'pyxchange:detail' pict.slug %}"><img src="{{ pict.img.url }}" width="100" alt="{{ pict.desc }}" title="{{ pict.desc }}" /></a>
     {% endfor %}
-    <br /><br />
-    <a href="{% url 'pyxchange:all' %}">All Images</a>
 {% endblock %}

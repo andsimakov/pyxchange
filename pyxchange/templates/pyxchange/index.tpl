@@ -2,7 +2,7 @@
 {% block title %}Pyxchange Image Share. Add Yours{% endblock %}
 
 {% block body %}
-    <h3>Add an image</h3>
+    <h3>Add Your Image</h3>
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="file" name="image" />
@@ -14,9 +14,4 @@
     {% for pict in images %}
         <a href="{% url 'pyxchange:detail' pict.slug %}"><img src="{{ pict.img.url }}" width="100" alt="{{ pict.desc }}" title="{{ pict.desc }}" /></a>
     {% endfor %}
-    <br /><br />
-    <a href="{% url 'pyxchange:popular' %}">Most Popular Images</a>
-    <br />
-    <a href="{% url 'pyxchange:all' %}">All Images</a>
-    <br />
 {% endblock %}
