@@ -1,6 +1,6 @@
 from datetime import datetime
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
 from django.views.generic.edit import CreateView
 from django.views import generic
 from django.db.models import F
@@ -9,12 +9,11 @@ from django import forms
 from django.forms import ModelForm
 from random import randint
 from django.utils.baseconv import base56
-from django.views.generic.detail import SingleObjectMixin
 
 from .models import Image
 
 
-class ImageCreate(generic.CreateView):
+class ImageCreate(CreateView):
     model = Image
     fields = ['img', 'desc']
 
@@ -52,6 +51,7 @@ def index(request):
 
 def detail(request, slug):
     image = get_object_or_404(Image, slug=slug)
+    # image.rev_count = F('rev_count') + 1
     image.rev_count += 1
     image.rev_date = datetime.now()
     image.save()

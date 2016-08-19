@@ -1,6 +1,5 @@
 from django.contrib.auth.models import Permission, User
 from django.db import models
-from datetime import datetime
 from django.core.urlresolvers import reverse
 from random import randint
 from django.utils.baseconv import base56
