@@ -3,11 +3,11 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# DEBUG = True
-# ALLOWED_HOSTS = []
+DEBUG = True
+ALLOWED_HOSTS = []
 
-DEBUG = False
-ALLOWED_HOSTS = ['localhost']
+# DEBUG = False
+# ALLOWED_HOSTS = ['localhost']
 
 INSTALLED_APPS = [
     'pyxchange',

@@ -12,6 +12,7 @@ from django.utils.baseconv import base56
 
 from .models import Image
 
+IMAGE_COUNT = 5
 
 class ImageCreate(CreateView):
     model = Image
@@ -46,7 +47,8 @@ def index(request):
         print(new_image)
         return redirect(new_image)
     else:
-        return render(request, 'pyxchange/index.tpl')
+        images = Image.objects.order_by('-upl_date')[:IMAGE_COUNT]
+        return render(request, 'pyxchange/index.tpl', {'images': images})
 
 
 def detail(request, slug):
@@ -56,3 +58,13 @@ def detail(request, slug):
     image.rev_date = datetime.now()
     image.save()
     return render(request, 'pyxchange/detail.tpl', {'image': image})
+
+
+def show_popular(request):
+    pop = Image.objects.order_by('-rev_count')[:IMAGE_COUNT]
+    return render(request, 'pyxchange/popular.tpl', {'images': pop})
+
+
+def show_all(request):
+    images = Image.objects.all()
+    return render(request, 'pyxchange/all.tpl', {'images': images})

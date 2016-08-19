@@ -1,5 +1,5 @@
 {% extends 'pyxchange/base.tpl' %}
-{% block title %}Most Popular Images{% endblock %}
+{% block title %}All Images{% endblock %}
 
 {% block body %}
     {{ images }}
@@ -8,6 +8,4 @@
             {{ images }}
         {% endfor %}
     {% endif %}
-    <br /><br />
-    <a href="#">All Images</a>
 {% endblock %}
