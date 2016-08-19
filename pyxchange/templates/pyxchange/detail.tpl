@@ -1,4 +1,4 @@
-{% extends 'pyxchange/base.html' %}
+{% extends 'pyxchange/base.tpl' %}
 {% block title %}{{ image.slug }}{% endblock %}
 
 {% block body %}

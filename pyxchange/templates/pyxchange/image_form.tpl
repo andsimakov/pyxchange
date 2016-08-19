@@ -1,4 +1,4 @@
-{% extends 'pyxchange/base.html' %}
+{% extends 'pyxchange/base.tpl' %}
 {% block title %}Upload a new image{% endblock %}
 
 {% block body %}
