@@ -2,6 +2,7 @@
 {% block title %}{{ image.slug }}{% endblock %}
 
 {% block body %}
+    {{ mess }}
     <img src="{{ image.img.url }}" width="500">
     <h1>Description: {{ image.desc }}</h1>
     <h3>Uploaded: {{ image.upl_date }}</h3>

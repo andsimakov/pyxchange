@@ -23,12 +23,13 @@ class Image(models.Model):
     def __str__(self):
         return '{} - {}'.format(self.slug, self.desc)
 
-    def save(self, *args, **kwargs):
-        #  Generate unique slug for an image
-        self.slug = Image.gen_slug()
-        super(Image, self).save(*args, **kwargs)
+    # # This is for Generic Views way
+    # def save(self, *args, **kwargs):
+    #     #  Add a slug for an image
+    #     self.slug = Image.gen_slug()
+    #     super(Image, self).save(*args, **kwargs)
 
     @staticmethod
     def gen_slug():
-        slug = base56.encode(randint(0, 0x7fffffff))
-        return slug
+        aslug = base56.encode(randint(0, 0x7fffffff))
+        return aslug

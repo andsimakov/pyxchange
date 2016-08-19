@@ -1,5 +1,5 @@
 from datetime import datetime
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic.edit import CreateView
 from django.views import generic
@@ -9,18 +9,19 @@ from django import forms
 from django.forms import ModelForm
 from random import randint
 from django.utils.baseconv import base56
+from django.views.generic.detail import SingleObjectMixin
 
 from .models import Image
 
 
-class ImageCreate(CreateView):
+class ImageCreate(generic.CreateView):
     model = Image
     fields = ['img', 'desc']
 
 
-class DetailView(generic.DetailView):
+class ImageView(generic.DetailView):
     model = Image
-    template_name = 'pyxchange/detail.html'
+    template_name = 'pyxchange/detail.tpl'
 
 
 def show_popular(request):
@@ -36,14 +37,22 @@ def gen_slug():
     return slug
 
 
-# def index(request):
-#     if request.method == 'POST':
-#         new_image = Image()
-#         new_image.img = request.FILES['image']
-#         new_image.desc = request.POST.get('desc')
-#         new_image.slug = gen_slug()
-#         new_image.save()
-#
-#         return render(request, 'pyxchange/detail.html', {'slug': new_image.slug})
-#     else:
-#         return render(request, 'pyxchange/index.html')
+def index(request):
+    if request.method == 'POST':
+        new_image = Image()
+        new_image.img = request.FILES['image']
+        new_image.desc = request.POST.get('desc')
+        new_image.slug = gen_slug()
+        new_image.save()
+        print(new_image)
+        return redirect(new_image)
+    else:
+        return render(request, 'pyxchange/index.tpl')
+
+
+def detail(request, slug):
+    image = get_object_or_404(Image, slug=slug)
+    image.rev_count += 1
+    image.rev_date = datetime.now()
+    image.save()
+    return render(request, 'pyxchange/detail.tpl', {'image': image})
