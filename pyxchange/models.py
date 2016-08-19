@@ -9,21 +9,13 @@ from django.utils.baseconv import base56
 class Image(models.Model):
     # For future auth feature implementation
     # user = models.ForeignKey(User, default=1)
-    img = models.ImageField('Image',
-                            upload_to='%I')
-    desc = models.CharField('Description',
-                            max_length=500,
-                            help_text='Up to 500 characters')
-    slug = models.SlugField(max_length=6,
-                            unique=True)
-    upl_date = models.DateTimeField('Uploaded',
-                                    default=datetime.now)
-    rev_date = models.DateTimeField('Last reviewed',
-                                    null=True)
-    rev_count = models.PositiveIntegerField('Reviews',
-                                            default=0)
-    like_count = models.PositiveIntegerField('Likes',
-                                             default=0)
+    img = models.ImageField('Image', upload_to='%I')
+    desc = models.CharField('Description', max_length=500, help_text='Up to 500 char.')
+    slug = models.SlugField(max_length=6, unique=True)
+    upl_date = models.DateTimeField('Uploaded', auto_now_add=True)
+    rev_date = models.DateTimeField('Last reviewed', null=True)
+    rev_count = models.PositiveIntegerField('Reviews', default=0)
+    like_count = models.PositiveIntegerField('Likes', default=0)
 
     def get_absolute_url(self):
         return reverse('pyxchange:detail', kwargs={'slug': self.slug})
@@ -31,7 +23,12 @@ class Image(models.Model):
     def __str__(self):
         return '{} - {}'.format(self.slug, self.desc)
 
+    def save(self, *args, **kwargs):
+        #  Generate unique slug for an image
+        self.slug = Image.gen_slug()
+        super(Image, self).save(*args, **kwargs)
+
     @staticmethod
-    def generate_slug():
+    def gen_slug():
         slug = base56.encode(randint(0, 0x7fffffff))
         return slug
