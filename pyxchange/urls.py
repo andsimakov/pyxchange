@@ -8,7 +8,7 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
 
     # url(r'^detail/(?P<slug>[0-9a-zA-Z]+)/$', views.ImageView.as_view(), name='detail'),
-    url(r'^detail/(?P<slug>[0-9a-zA-Z]+)/$', views.detail, name='detail'),
+    url(r'^(?P<slug>[\w]+)/$', views.detail, name='detail'),
 
     url(r'^popular/$', views.show_popular, name='popular'),
 

@@ -36,7 +36,6 @@ def index(request):
         new_image.desc = request.POST.get('desc')
         new_image.slug = gen_slug()
         new_image.save()
-        print(new_image)
         return redirect(new_image)
     else:
         images = Image.objects.order_by('-upl_date')[:IMAGE_COUNT]
