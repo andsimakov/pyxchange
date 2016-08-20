@@ -26,8 +26,7 @@ IMAGE_COUNT = 12
 
 
 def gen_slug():
-    slug = base56.encode(randint(0, 0x7fffffff))
-    return slug
+    return base56.encode(randint(0, 0x7fffffff))
 
 
 def index(request):
