@@ -2,14 +2,11 @@
 {% block title %}Pyxchange Image Share. Add Yours{% endblock %}
 
 {% block body %}
-    <h3>Add Your Image</h3>
+    <h3>Add Image Form</h3>
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <input type="file" name="image" />
-        <label for="desc">Image description</label>
-        <input name="desc" id="desc" type="text" />
+        {% include 'pyxchange/form_template.tpl' %}
         <button type="submit">Upload</button>
-    {% include 'pyxchange/form_template.tpl' %}
     </form>
     <br />
     {% for pict in images %}

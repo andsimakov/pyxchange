@@ -4,7 +4,7 @@ from random import randint
 from django.utils.baseconv import base56
 from django.db.models import F
 from django import forms
-from django.forms import ModelForm
+from .forms import ImageForm
 
 from .models import Image
 
@@ -28,6 +28,18 @@ def index(request):
         return render(request, 'pyxchange/index.tpl', {'images': images})
 
 
+def add(request):
+    form = ImageForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        image = form.save(commit=False)
+        image.img = request.FILES['img']
+        image.desc = request.POST.get['desc']
+        image.save()
+        return render(request, 'pyxchange/detail.tpl', {'image': image})
+    context = {'form': form,}
+    return render(request, 'pyxchange/image_form.tpl', context)
+
+
 def detail(request, slug):
     image = get_object_or_404(Image, slug=slug)
     image.rev_count = F('rev_count') + 1
@@ -45,4 +57,3 @@ def show_popular(request):
 def show_all(request):
     images = Image.objects.order_by('-upl_date')
     return render(request, 'pyxchange/all.tpl', {'images': images})
-
