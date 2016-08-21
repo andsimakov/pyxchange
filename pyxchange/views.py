@@ -16,27 +16,16 @@ def gen_slug():
 
 
 def index(request):
-    if request.method == 'POST':
-        new_image = Image()
-        new_image.img = request.FILES['image']
-        new_image.desc = request.POST.get('desc')
-        new_image.slug = gen_slug()
-        new_image.save()
-        return redirect(new_image)
-    else:
-        images = Image.objects.order_by('-upl_date')[:IMAGE_COUNT]
-        return render(request, 'pyxchange/index.tpl', {'images': images})
-
-
-def add(request):
     form = ImageForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         image = form.save(commit=False)
         image.img = request.FILES['img']
-        image.desc = request.POST.get['desc']
+        image.desc = request.POST.get('desc')
+        image.slug = gen_slug()
         image.save()
         return render(request, 'pyxchange/detail.tpl', {'image': image})
-    context = {'form': form,}
+    images = Image.objects.order_by('-upl_date')[:IMAGE_COUNT]
+    context = {'form': form, 'images': images}
     return render(request, 'pyxchange/image_form.tpl', context)
 
 
