@@ -15,16 +15,6 @@ from .models import Image
 IMAGE_COUNT = 12
 
 
-# class ImageCreate(CreateView):
-#     model = Image
-#     fields = ['img', 'desc']
-#
-#
-# class ImageView(generic.DetailView):
-#     model = Image
-#     template_name = 'pyxchange/detail.tpl'
-
-
 def gen_slug():
     return base56.encode(randint(0, 0x7fffffff))
 
@@ -59,3 +49,13 @@ def show_popular(request):
 def show_all(request):
     images = Image.objects.order_by('-upl_date')
     return render(request, 'pyxchange/all.tpl', {'images': images})
+
+
+# class ImageCreate(CreateView):
+#     model = Image
+#     fields = ['img', 'desc']
+#
+#
+# class ImageView(generic.DetailView):
+#     model = Image
+#     template_name = 'pyxchange/detail.tpl'

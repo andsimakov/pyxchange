@@ -6,7 +6,7 @@
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="file" name="image" />
-        <label for="desc">Image descrition</label>
+        <label for="desc">Image description</label>
         <input name="desc" id="desc" type="text" />
         <button type="submit">Upload</button>
     </form>

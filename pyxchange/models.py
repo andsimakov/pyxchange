@@ -1,8 +1,9 @@
-# from django.contrib.auth.models import Permission, User
 from django.db import models
 from django.core.urlresolvers import reverse
-from random import randint
-from django.utils.baseconv import base56
+# from django.contrib.auth.models import Permission, User
+
+# from random import randint
+# from django.utils.baseconv import base56
 
 
 class Image(models.Model):
@@ -29,6 +30,6 @@ class Image(models.Model):
     #     super(Image, self).save(*args, **kwargs)
 
     # Kill this shit then or in .views
-    @staticmethod
-    def gen_slug():
-        return base56.encode(randint(0, 0x7fffffff))
+    # @staticmethod
+    # def gen_slug():
+    #     return base56.encode(randint(0, 0x7fffffff))
