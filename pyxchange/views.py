@@ -1,14 +1,10 @@
 from datetime import datetime
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
-from django.views.generic.edit import CreateView
-from django.views import generic
-from django.db.models import F
-from django.core.urlresolvers import reverse
-from django import forms
-from django.forms import ModelForm
 from random import randint
 from django.utils.baseconv import base56
+from django.db.models import F
+from django import forms
+from django.forms import ModelForm
 
 from .models import Image
 
@@ -50,12 +46,3 @@ def show_all(request):
     images = Image.objects.order_by('-upl_date')
     return render(request, 'pyxchange/all.tpl', {'images': images})
 
-
-# class ImageCreate(CreateView):
-#     model = Image
-#     fields = ['img', 'desc']
-#
-#
-# class ImageView(generic.DetailView):
-#     model = Image
-#     template_name = 'pyxchange/detail.tpl'

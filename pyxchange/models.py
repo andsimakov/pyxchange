@@ -2,9 +2,6 @@ from django.db import models
 from django.core.urlresolvers import reverse
 # from django.contrib.auth.models import Permission, User
 
-# from random import randint
-# from django.utils.baseconv import base56
-
 
 class Image(models.Model):
     img = models.ImageField('Image', upload_to='%I')
@@ -22,14 +19,3 @@ class Image(models.Model):
 
     def __str__(self):
         return '{} - {}'.format(self.slug, self.desc)
-
-    # # This is for Generic Views way
-    # def save(self, *args, **kwargs):
-    #     #  Add a slug for an image
-    #     self.slug = Image.gen_slug()
-    #     super(Image, self).save(*args, **kwargs)
-
-    # Kill this shit then or in .views
-    # @staticmethod
-    # def gen_slug():
-    #     return base56.encode(randint(0, 0x7fffffff))
