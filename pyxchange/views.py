@@ -30,10 +30,10 @@ def index(request):
 
 def detail(request, slug):
     image = get_object_or_404(Image, slug=slug)
-    # image.rev_count = F('rev_count') + 1
-    image.rev_count += 1
+    image.rev_count = F('rev_count') + 1
     image.rev_date = datetime.now()
     image.save()
+    image.refresh_from_db()
     return render(request, 'pyxchange/detail.tpl', {'image': image})
 
 
