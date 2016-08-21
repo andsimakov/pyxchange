@@ -10,4 +10,13 @@
         <li>Dimensions: {{ image.img.width }}px (W) x {{ image.img.height }}px (H)</li>
         <li>Views: {{ image.rev_count }}</li>
     </ul>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+    </form>
 {% endblock %}

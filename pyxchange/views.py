@@ -1,10 +1,10 @@
 from datetime import datetime
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from random import randint
 from django.utils.baseconv import base56
 from django.db.models import F
-from django import forms
 from .forms import ImageForm
+from django import forms
 
 from .models import Image
 
@@ -46,3 +46,9 @@ def show_popular(request):
 def show_all(request):
     images = Image.objects.order_by('-upl_date')
     return render(request, 'pyxchange/all.tpl', {'images': images})
+
+
+# def like(request, slug):
+#     image = get_object_or_404(Image, slug=slug)
+#     image.like_count = F('like_count') + 1
+#     image.save()
