@@ -33,13 +33,10 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="javascript:void()">
-                                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; Logout
-                            </a>
+                            <a href="{% url 'pyxchange:logout_user' %}">Logout</a>
                         </li>
                     </ul>
                 </div>
-
             </div>
         </nav>
         {% block body %}
