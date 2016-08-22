@@ -88,9 +88,7 @@ def login_user(request):
             if user.is_active:
                 login(request, user)
                 form = ImageForm(request.POST or None, request.FILES or None)
-                images = Image.objects.order_by('-upl_date')[:IMAGE_COUNT]
-                context = {'form': form, 'images': images}
-                return render(request, 'pyxchange/index.tpl', context)
+                return redirect('/')
             else:
                 return render(request, 'pyxchange/login.tpl', {'error_message': 'Your account has been disabled'})
         else:
@@ -100,4 +98,5 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    return render(request, 'pyxchange/index.tpl')
+    return redirect('/')
+    # return render(request, 'pyxchange/index.tpl')
