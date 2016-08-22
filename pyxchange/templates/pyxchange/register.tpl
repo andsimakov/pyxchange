@@ -42,6 +42,9 @@
                         </div>
                     </form>
                 </div>
+                <div class="panel-footer">
+                     <a href="{% url 'pyxchange:login_user' %}">Click here</a> to log in instead.
+                </div>
             </div>
         </div>
     </div>

@@ -28,8 +28,10 @@
             <!-- Items -->
             <div class="collapse navbar-collapse" id="topNavBar">
                 <ul class="nav navbar-nav navbar-right">
+                    <!--
                     <li class="{% block register_active %}{% endblock %}"><a href="{% url 'pyxchange:register' %}">Register</a></li>
                     <li class="{% block login_active %}{% endblock %}"><a href="{% url 'pyxchange:login_user' %}">Log In</a></li>
+                    -->
                 </ul>
             </div>
 

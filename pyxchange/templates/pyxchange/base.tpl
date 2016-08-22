@@ -32,9 +32,11 @@
                         <li class="{% block all_active %}{% endblock %}"><a href="{% url 'pyxchange:all' %}">All</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="{% url 'pyxchange:logout_user' %}">Logout</a>
-                        </li>
+                        {% if user.is_authenticated %}
+                            <li><a href="{% url 'pyxchange:logout_user' %}">Logout</a></li>
+                        {% else %}
+                            <li><a href="{% url 'pyxchange:login_user' %}">Log in</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>

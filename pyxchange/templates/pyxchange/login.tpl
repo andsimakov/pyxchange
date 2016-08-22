@@ -10,7 +10,7 @@
                 <div class="panel-body">
                     <h3>Log In</h3>
                     {% if error_message %}
-                        <p><b>{{ error_message }}</b></p>
+                        <p><b class="text-danger">{{ error_message }}</b></p>
                     {% endif %}
                     <form class="form-horizontal" role="form" action="{% url 'pyxchange:login_user'%}" method="post" enctype="multipart/form-data">
                         {% csrf_token %}

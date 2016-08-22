@@ -18,40 +18,32 @@ def gen_slug():
 
 
 def index(request):
-    if not request.user.is_authenticated():
-        return render(request, 'pyxchange/login.tpl')
-    else:
-        form = ImageForm(request.POST or None, request.FILES or None)
-        if form.is_valid():
-            image = form.save(commit=False)
-            image.img = request.FILES['img']
-            image.desc = request.POST.get('desc')
-            image.slug = gen_slug()
-            image.save()
-            return render(request, 'pyxchange/detail.tpl', {'image': image})
-        images = Image.objects.order_by('-upl_date')[:IMAGE_COUNT]
-        context = {'form': form, 'images': images}
-        return render(request, 'pyxchange/image_form.tpl', context)
+    form = ImageForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        image = form.save(commit=False)
+        image.user = request.user
+        image.img = request.FILES['img']
+        image.desc = request.POST.get('desc')
+        image.slug = gen_slug()
+        image.save()
+        return render(request, 'pyxchange/detail.tpl', {'image': image})
+    images = Image.objects.order_by('-upl_date')[:IMAGE_COUNT]
+    context = {'form': form, 'images': images}
+    return render(request, 'pyxchange/index.tpl', context)
 
 
 def detail(request, slug):
-    if not request.user.is_authenticated():
-        return render(request, 'pyxchange/login.tpl')
-    else:
-        image = get_object_or_404(Image, slug=slug)
-        image.rev_count = F('rev_count') + 1
-        image.rev_date = datetime.now()
-        image.save()
-        image.refresh_from_db()
-        return render(request, 'pyxchange/detail.tpl', {'image': image})
+    image = get_object_or_404(Image, slug=slug)
+    image.rev_count = F('rev_count') + 1
+    image.rev_date = datetime.now()
+    image.save()
+    image.refresh_from_db()
+    return render(request, 'pyxchange/detail.tpl', {'image': image})
 
 
 def show_popular(request):
-    if not request.user.is_authenticated():
-        return render(request, 'pyxchange/login.tpl')
-    else:
-        pop = Image.objects.order_by('-rev_count')[:IMAGE_COUNT]
-        return render(request, 'pyxchange/popular.tpl', {'images': pop})
+    pop = Image.objects.order_by('-rev_count')[:IMAGE_COUNT]
+    return render(request, 'pyxchange/popular.tpl', {'images': pop})
 
 
 def show_all(request):
@@ -98,7 +90,7 @@ def login_user(request):
                 form = ImageForm(request.POST or None, request.FILES or None)
                 images = Image.objects.order_by('-upl_date')[:IMAGE_COUNT]
                 context = {'form': form, 'images': images}
-                return render(request, 'pyxchange/image_form.tpl', context)
+                return render(request, 'pyxchange/index.tpl', context)
             else:
                 return render(request, 'pyxchange/login.tpl', {'error_message': 'Your account has been disabled'})
         else:
@@ -108,9 +100,4 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    form = UserForm(request.POST or None)
-    context = {
-        "form": form,
-    }
-    return render(request, 'pyxchange/login.tpl', context)
-
+    return render(request, 'pyxchange/index.tpl')
