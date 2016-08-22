@@ -6,6 +6,7 @@ app_name = 'pyxchange'
 urlpatterns = [
     # url(r'^$', views.index, name='index'),
     url(r'^$', views.index, name='index'),
+    url(r'^register/$', views.UserFormView.as_view(), name='register'),
     url(r'^popular/$', views.show_popular, name='popular'),
     url(r'^all/$', views.show_all, name='all'),
     url(r'^(?P<slug>[\w]+)/$', views.detail, name='detail'),

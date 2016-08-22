@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.urlresolvers import reverse
-# from django.contrib.auth.models import Permission, User
+from django.contrib.auth.models import Permission, User
 
 
 class Image(models.Model):
@@ -11,8 +11,7 @@ class Image(models.Model):
     rev_date = models.DateTimeField('Last reviewed', null=True)
     rev_count = models.PositiveIntegerField('Reviews', default=0)
     like_count = models.PositiveIntegerField('Likes', default=0)
-    # For future auth feature implementation
-    # user = models.ForeignKey(User, default=1)
+    user = models.ForeignKey(User, default=1)
 
     def get_absolute_url(self):
         return reverse('pyxchange:detail', kwargs={'slug': self.slug})

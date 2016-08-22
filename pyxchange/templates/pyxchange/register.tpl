@@ -1,8 +1,8 @@
 {% extends 'pyxchange/base.tpl' %}
-{% block title %}Pyxchange Image Share. Add Yours{% endblock %}
+{% block title %}Pyxchange User Register{% endblock %}
 
 {% block body %}
-    <h3>Add Your Image</h3>
+    <h3>Create a New Account</h3>
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {% include 'pyxchange/form_template.tpl' %}
