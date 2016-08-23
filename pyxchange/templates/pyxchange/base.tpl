@@ -33,7 +33,7 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         {% if user.is_authenticated %}
-                            <li><a href="javascript:void()">{{ user }}</a></li>
+                            <li><a href="{% url 'pyxchange:cabinet' %}">{{ user }}</a></li>
                             <li>
                                 <a href="{% url 'pyxchange:logout_user' %}">Logout</a>
                             </li>

@@ -51,6 +51,14 @@ def show_all(request):
     return render(request, 'pyxchange/all.tpl', {'images': images})
 
 
+def cabinet(request):
+    if not request.user.is_authenticated():
+        return render(request, 'pyxchange/login.tpl')
+    else:
+        user_image_set = Image.objects.filter(user=request.user)
+        return render(request, 'pyxchange/cabinet.tpl', {'images': user_image_set})
+
+
 class UserFormView(View):
     form_class = UserForm
     template_name = 'pyxchange/register.tpl'
@@ -98,4 +106,3 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return redirect('pyxchange:index')
-
