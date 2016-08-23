@@ -14,7 +14,8 @@
             </div>
         </form>
     {% else %}
-        <h4 class="text-warning">You have to log in prior to upload your images</h4>
+        <h1>The Image Sharing</h1>
+        <h4 class="text-warning">Review incognito. Log in to share.</h4>
     {% endif %}
     <div class="col-sm-offset-2 col-sm-10">
         <hr />

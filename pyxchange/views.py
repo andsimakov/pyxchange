@@ -87,8 +87,7 @@ def login_user(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                form = ImageForm(request.POST or None, request.FILES or None)
-                return redirect('/')
+                return redirect('pyxchange:index')
             else:
                 return render(request, 'pyxchange/login.tpl', {'error_message': 'Your account has been disabled'})
         else:
@@ -98,5 +97,5 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    return redirect('/')
-    # return render(request, 'pyxchange/index.tpl')
+    return redirect('pyxchange:index')
+
