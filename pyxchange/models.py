@@ -10,7 +10,6 @@ class Image(models.Model):
     upl_date = models.DateTimeField('Uploaded', auto_now_add=True)
     rev_date = models.DateTimeField('Last reviewed', null=True)
     rev_count = models.PositiveIntegerField('Reviews', default=0)
-    like_count = models.PositiveIntegerField('Likes', default=0)
     user = models.ForeignKey(User, default=1)
 
     def get_absolute_url(self):
@@ -18,3 +17,13 @@ class Image(models.Model):
 
     def __str__(self):
         return '{} - {}'.format(self.slug, self.desc)
+
+    # Override the method to clean up a garbage upon an object deletion
+    def delete(self, *args, **kwargs):
+        self.img.delete(save=False)
+        super(Image, self).delete(*args, **kwargs)
+
+
+class Like(models.Model):
+    user = models.ForeignKey(User)
+    slug = models.ForeignKey(Image)

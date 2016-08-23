@@ -6,14 +6,18 @@ from django.db.models import F
 from .forms import ImageForm
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic import View
+from django.views.generic.edit import DeleteView
+from django.core.urlresolvers import reverse_lazy
+from django.http import HttpResponseRedirect
 
-from .models import Image
+from .models import Image, Like
 from .forms import UserForm
 
+# Number of latest images (popular, uploaded, etc.)
 IMAGE_COUNT = 12
 
 
-def gen_slug():
+def slug_gen():
     return base56.encode(randint(0, 0x7fffffff))
 
 
@@ -24,7 +28,7 @@ def index(request):
         image.user = request.user
         image.img = request.FILES['img']
         image.desc = request.POST.get('desc')
-        image.slug = gen_slug()
+        image.slug = slug_gen()
         image.save()
         return render(request, 'pyxchange/detail.tpl', {'image': image})
     images = Image.objects.order_by('-upl_date')[:IMAGE_COUNT]
@@ -52,11 +56,30 @@ def show_all(request):
 
 
 def cabinet(request):
-    if not request.user.is_authenticated():
-        return render(request, 'pyxchange/login.tpl')
+    user_image_set = Image.objects.filter(user=request.user)
+    return render(request, 'pyxchange/cabinet.tpl', {'images': user_image_set})
+
+
+# class ImageDelete(DeleteView):
+#     model = Image
+#     success_url = reverse_lazy('pyxchange:index', request.user.id)
+#
+#     def delete(self, request, *args, **kwargs):
+#         if self.object.user == request.user:
+#             self.object.delete()
+#         success_url = self.get_success_url()
+#         self.object.delete()
+#         return HttpResponseRedirect(success_url)
+
+
+def delete(request, slug):
+    image = Image.objects.get(slug=slug, user=request.user)
+    if image.user is request.user:
+        image.delete()
+        return redirect('pyxchange:index')
     else:
-        user_image_set = Image.objects.filter(user=request.user)
-        return render(request, 'pyxchange/cabinet.tpl', {'images': user_image_set})
+        context = {'message': 'You are not the owner!'}
+        return render(request, 'pyxchange/detail.tpl', context)
 
 
 class UserFormView(View):

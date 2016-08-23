@@ -9,14 +9,22 @@
         <li>File size: {{ image.img.size|filesizeformat }}</li>
         <li>Dimensions: {{ image.img.width }}px (W) x {{ image.img.height }}px (H)</li>
         <li>Views: {{ image.rev_count }}</li>
+        <li>Mine: {{ own_image.user }}</li>
     </ul>
-
-    <form action="" method="post">
-        {% csrf_token %}
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-success">Submit</button>
+    {% if user.is_authenticated %}
+        <form action="{% url 'pyxchange:delete' image.slug %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <input type="hidden" name="slug" value="{{ image.slug }}">
+                    <button type="submit" name="delete" class="btn btn-danger">Delete</button>
+                    <h4>{{ message }}</h4>
+                    <!--
+                    <button type="submit" name="dislike" class="btn btn-warning">Dislike</button>
+                    <button type="submit" name="like" class="btn btn-success">Like</button>
+                    -->
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
+    {% endif %}
 {% endblock %}
