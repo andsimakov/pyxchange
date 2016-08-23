@@ -6,9 +6,6 @@ from django.db.models import F
 from .forms import ImageForm
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic import View
-from django.views.generic.edit import DeleteView
-from django.core.urlresolvers import reverse_lazy
-from django.http import HttpResponseRedirect
 
 from .models import Image, Like
 from .forms import UserForm
@@ -60,20 +57,10 @@ def cabinet(request):
     return render(request, 'pyxchange/cabinet.tpl', {'images': user_image_set})
 
 
-class ImageDelete(DeleteView):
-    model = Image
-    success_url = reverse_lazy('pyxchange:cabinet')
-
-
-# def delete(request, slug):
-#     image = Image.objects.get(slug=slug)
-#
-#     if image.user_id is request.user:
-#         image.delete()
-#         return redirect('pyxchange:index')
-#     else:
-#         context = {'message': 'You are not the owner!'}
-#         return render(request, 'pyxchange/detail.tpl', context)
+def delete(request, slug):
+    image = Image.objects.get(slug=slug)
+    image.delete()
+    return redirect('pyxchange:cabinet')
 
 
 class UserFormView(View):

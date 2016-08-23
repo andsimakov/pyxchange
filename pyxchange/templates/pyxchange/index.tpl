@@ -21,7 +21,7 @@
     </div>
     <div class="col-sm-offset-2 col-sm-10">
         <hr />
-        <h4>Recent uploads</h4>
+        <h4>Recent Uploads</h4>
         {% for image in images %}
             <a href="{% url 'pyxchange:detail' image.slug %}"><img src="{{ image.img.url }}" width="170" title="{{ image.desc }}" /></a>
         {% endfor %}
