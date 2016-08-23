@@ -60,26 +60,20 @@ def cabinet(request):
     return render(request, 'pyxchange/cabinet.tpl', {'images': user_image_set})
 
 
-# class ImageDelete(DeleteView):
-#     model = Image
-#     success_url = reverse_lazy('pyxchange:index', request.user.id)
+class ImageDelete(DeleteView):
+    model = Image
+    success_url = reverse_lazy('pyxchange:cabinet')
+
+
+# def delete(request, slug):
+#     image = Image.objects.get(slug=slug)
 #
-#     def delete(self, request, *args, **kwargs):
-#         if self.object.user == request.user:
-#             self.object.delete()
-#         success_url = self.get_success_url()
-#         self.object.delete()
-#         return HttpResponseRedirect(success_url)
-
-
-def delete(request, slug):
-    image = Image.objects.get(slug=slug, user=request.user)
-    if image.user is request.user:
-        image.delete()
-        return redirect('pyxchange:index')
-    else:
-        context = {'message': 'You are not the owner!'}
-        return render(request, 'pyxchange/detail.tpl', context)
+#     if image.user_id is request.user:
+#         image.delete()
+#         return redirect('pyxchange:index')
+#     else:
+#         context = {'message': 'You are not the owner!'}
+#         return render(request, 'pyxchange/detail.tpl', context)
 
 
 class UserFormView(View):

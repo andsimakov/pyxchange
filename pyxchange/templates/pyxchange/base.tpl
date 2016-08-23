@@ -38,7 +38,8 @@
                                 <a href="{% url 'pyxchange:logout_user' %}">Logout</a>
                             </li>
                         {% else %}
-                            <li><a href="{% url 'pyxchange:login_user' %}">Log in</a></li>
+                            <li><a href="{% url 'pyxchange:login_user' %}">Log In</a></li>
+                            <li><a href="{% url 'pyxchange:register' %}">Sign Up</a></li>
                         {% endif %}
                     </ul>
                 </div>

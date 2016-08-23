@@ -18,8 +18,8 @@
     {% endif %}
     <div class="col-sm-offset-2 col-sm-10">
         <hr />
-        {% for pict in images %}
-            <a href="{% url 'pyxchange:detail' pict.slug %}"><img src="{{ pict.img.url }}" width="100" alt="{{ pict.desc }}" title="{{ pict.desc }}" /></a>
+        {% for image in images %}
+            <a href="{% url 'pyxchange:detail' image.slug %}"><img src="{{ image.img.url }}" width="100" title="{{ image.desc }}" /></a>
         {% endfor %}
     </div>
 {% endblock %}

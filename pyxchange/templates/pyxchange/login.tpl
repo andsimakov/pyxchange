@@ -38,7 +38,7 @@
                     </form>
                 </div>
                 <div class="panel-footer">
-                    Don't have an account? <a href="{% url 'pyxchange:register' %}">Click here</a> to register.
+                    Don't have an account? <a href="{% url 'pyxchange:register' %}">Click here</a> to sign up.
                 </div>
             </div>
         </div>

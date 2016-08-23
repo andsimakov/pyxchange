@@ -2,7 +2,7 @@
 {% block title %}{{ image.slug }}{% endblock %}
 
 {% block body %}
-    <a href="javascript:window.history.back()"><img src="{{ image.img.url }}" width="600" alt="Back" title="Back"></a>
+    <img src="{{ image.img.url }}" width="700" alt="Back" title="Back">
     <h1>{{ image.desc }}</h1>
     <ul>
         <li>Uploaded: {{ image.upl_date }}</li>
@@ -12,13 +12,10 @@
         <li>Mine: {{ own_image.user }}</li>
     </ul>
     {% if user.is_authenticated %}
-        <form action="{% url 'pyxchange:delete' image.slug %}" method="post">
+        <form action="" method="post">
             {% csrf_token %}
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <input type="hidden" name="slug" value="{{ image.slug }}">
-                    <button type="submit" name="delete" class="btn btn-danger">Delete</button>
-                    <h4>{{ message }}</h4>
                     <!--
                     <button type="submit" name="dislike" class="btn btn-warning">Dislike</button>
                     <button type="submit" name="like" class="btn btn-success">Like</button>
