@@ -12,7 +12,7 @@
                     {% if error_message %}
                         <p><b>{{ error_message }}</b></p>
                     {% endif %}
-                    <form class="form-horizontal" action="{% url 'pyxchange:login_user'%}" method="post" enctype="multipart/form-data">
+                    <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         {% include 'pyxchange/form_template.tpl' %}
                         <div class="form-group">

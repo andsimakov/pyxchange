@@ -7,7 +7,7 @@ from .forms import ImageForm
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic import View
 
-from .models import Image, Like
+from .models import Image
 from .forms import UserForm
 
 # Number of latest images (popular, uploaded, etc.)

@@ -16,10 +16,7 @@
             {% csrf_token %}
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <!--
-                    <button type="submit" name="dislike" class="btn btn-warning">Dislike</button>
                     <button type="submit" name="like" class="btn btn-success">Like</button>
-                    -->
                 </div>
             </div>
         </form>
