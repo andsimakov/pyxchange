@@ -1,7 +1,9 @@
-body{background-color: #eee;}
+body{
+    background-color: #eee;
+    font-family: 'Open Sans', sans-serif;
+}
 .navbar{
     border-radius: 0;
-    font-family: 'Open Sans Condensed', sans-serif;
     font-size: 1.3em;
 }
 .navbar-brand{
@@ -9,8 +11,9 @@ body{background-color: #eee;}
     font-size: 1.5em;
     font-weight: 700;
 }
-.thumb{
-    display: inline-block;
-    margin: .5em .1em;
-}
 .del{text-align: center;}
+.thumbnail{
+    border-radius: 5px;
+    display: inline-block;
+    margin: .3em .1em;
+}

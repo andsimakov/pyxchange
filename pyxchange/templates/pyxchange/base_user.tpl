@@ -14,27 +14,10 @@
     <body>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
-
             <!-- Header -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
                 <a class="navbar-brand" href="{% url 'pyxchange:index' %}">Pyxchange</a>
             </div>
-
-            <!-- Items -->
-            <div class="collapse navbar-collapse" id="topNavBar">
-                <ul class="nav navbar-nav navbar-right">
-                    <!--
-                    <li class="{% block register_active %}{% endblock %}"><a href="{% url 'pyxchange:register' %}">Register</a></li>
-                    <li class="{% block login_active %}{% endblock %}"><a href="{% url 'pyxchange:login_user' %}">Log In</a></li>
-                    -->
-                </ul>
-            </div>
-
         </div>
     </nav>
     {% block body %}
