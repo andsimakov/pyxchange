@@ -13,9 +13,9 @@
                             <img src="{{ image.img_thumb_medium.url }}" title="{{ image.desc }}" />
                         </a>
                     </div>
-                    <div class="del text-center">
+                    <div class="trash text-center">
                         <a href="{% url 'pyxchange:delete' image.slug %}">
-                            <b class="text-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></b>
+                            <b class="text-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></b>
                         </a>
                     </div>
                 </div>

@@ -2,28 +2,40 @@
 {% block title %}{{ image.slug }}{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <img class="img-thumbnail animated fadeIn" src="{{ image.img.url }}" width="700">
-            <div class="animated fadeInUp">
-                <h2>{{ image.desc }}</h2>
-                <ul>
-                    <li>Uploaded: {{ image.upl_date }}</li>
-                    <li>File size: {{ image.img.size|filesizeformat }}</li>
-                    <li>Dimensions: {{ image.img.width }}px (W) x {{ image.img.height }}px (H)</li>
-                    <li>Views: {{ image.rev_count }}</li>
-                </ul>
-                {% if user.is_authenticated %}
-                    <form action="" method="post">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" name="like" class="btn btn-success"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Like</button>
-                            </div>
-                        </div>
-                    </form>
-                {% endif %}
-            </div>
+    <div style="text-align: center;">
+        <img class="img-thumbnail animated fadeIn" src="{{ image.img.url }}" width="600">
+        <div class="animated fadeIn">
+            <table class="details">
+                <tr>
+                    <td colspan="2"><h3><b>{{ image.desc }}</b></h3></td>
+                </tr>
+                <tr>
+                    <td class="col1 text-primary"><span class="glyphicon glyphicon-upload gi-2x"></span></td>
+                    <td class="col2">{{ image.upl_date }}</td>
+                </tr>
+                <tr>
+                    <td class="col1 text-primary"><span class="glyphicon glyphicon-scale gi-2x"></span></td>
+                    <td class="col2">{{ image.img.size|filesizeformat }}</td>
+                </tr>
+                <tr>
+                    <td class="col1 text-primary"><span class="glyphicon glyphicon-fullscreen gi-2x"></span></td>
+                    <td class="col2">{{ image.img.width }}px (W) x {{ image.img.height }}px (H)</td>
+                </tr>
+                <tr>
+                    <td class="col1 text-primary"><span class="glyphicon glyphicon-eye-open gi-2x"></span></td>
+                    <td class="col2">{{ image.rev_count }}</td>
+                </tr>
+            </table>
+            {% if user.is_authenticated %}
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <button type="submit" name="like" class="btn btn-success">
+                            <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Like
+                        </button>
+                    </div>
+                </form>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

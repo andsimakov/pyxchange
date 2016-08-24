@@ -21,7 +21,7 @@ class Image(models.Model):
                                       processors=[ResizeToFill(175, 175)],
                                       format='JPEG',
                                       options={'quality': 65})
-    desc = models.CharField('Description', max_length=500, help_text='Up to 500 char.')
+    desc = models.CharField('Title', max_length=500, help_text='Up to 500 char.')
     slug = models.SlugField(max_length=6, unique=True)
     upl_date = models.DateTimeField('Uploaded', auto_now_add=True)
     rev_date = models.DateTimeField('Last reviewed', null=True)

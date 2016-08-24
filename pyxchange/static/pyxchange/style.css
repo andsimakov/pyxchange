@@ -1,6 +1,7 @@
 body{
     background-color: #eee;
     font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
 }
 .navbar{
     border-radius: 0;
@@ -11,12 +12,25 @@ body{
     font-size: 1.5em;
     font-weight: 700;
 }
-.del{
+.trash{
     font-size: 1.2em;
-    margin: -.1em 0 -.3em;
+    margin: .2em 0 -.1em;
 }
 .thumbnail{
     border-radius: 5px;
     display: inline-block;
     margin: .3em .1em;
 }
+.gi-2x{font-size: 1.5em;}
+.details{
+    display: inline-table;
+    font-size: 1.2em;
+    margin: 0 auto;
+    width: 50%;
+}
+  .details td{padding: .2em .5em;}
+  .details .col1 {
+      text-align: right;
+      width: 40%;
+  }
+  .details .col2 {text-align: left;}

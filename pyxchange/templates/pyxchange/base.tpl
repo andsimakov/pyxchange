@@ -42,7 +42,7 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         {% if user.is_authenticated %}
-                            <li>
+                            <li class="{% block cabinet_active %}{% endblock %}">
                                 <a href="{% url 'pyxchange:cabinet' %}">
                                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ user }}
                                 </a>
@@ -68,7 +68,7 @@
                 </div>
             </div>
         </nav>
-        {% block body %}
-        {% endblock %}
+            {% block body %}
+            {% endblock %}
     </body>
 </html>

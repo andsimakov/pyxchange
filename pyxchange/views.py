@@ -53,7 +53,7 @@ def show_all(request):
 
 
 def cabinet(request):
-    user_image_set = Image.objects.filter(user=request.user)
+    user_image_set = list(Image.objects.filter(user=request.user).order_by('-upl_date'))
     return render(request, 'pyxchange/cabinet.tpl', {'images': user_image_set})
 
 
