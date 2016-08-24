@@ -6,9 +6,9 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12 col-md-6">
-            <div class="panel panel-default">
+            <div class="panel panel-default animated fadeInRight">
                 <div class="panel-body">
-                    <h3>Sign Up</h3>
+                    <h3><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Sign Up</h3>
                     {% if error_message %}
                         <p><b>{{ error_message }}</b></p>
                     {% endif %}
