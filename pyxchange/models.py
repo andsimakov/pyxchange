@@ -9,18 +9,10 @@ from imagekit.processors import ResizeToFill
 
 class Image(models.Model):
     img = models.ImageField('Image', upload_to='%I')
-    img_thumb_small = ImageSpecField(source='',
-                                   processors=[ResizeToFill(130, 130)],
+    img_thumbnail = ImageSpecField(source='',
+                                   processors=[ResizeToFill(140, 140)],
                                    format='JPEG',
-                                   options={'quality': 60})
-    img_thumb_medium = ImageSpecField(source='',
-                                     processors=[ResizeToFill(150, 150)],
-                                     format='JPEG',
-                                     options={'quality': 65})
-    img_thumb_large = ImageSpecField(source='',
-                                      processors=[ResizeToFill(175, 175)],
-                                      format='JPEG',
-                                      options={'quality': 65})
+                                   options={'quality': 65})
     desc = models.CharField('Title', max_length=500, help_text='Up to 500 char.')
     slug = models.SlugField(max_length=6, unique=True)
     upl_date = models.DateTimeField('Uploaded', auto_now_add=True)

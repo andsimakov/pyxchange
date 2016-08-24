@@ -3,12 +3,31 @@
 {% block all_active %}active{% endblock %}
 
 {% block body %}
-    <div class="col-sm-offset-2 col-sm-10">
+<div class="container">
+    <div class="row text-center">
         <h2>All Images</h2>
-        {% for image in images %}
-            <a href="{% url 'pyxchange:detail' image.slug %}">
-                <img class="thumbnail animated flipInY" src="{{ image.img_thumb_small.url }}" title="{{ image.desc }}" />
-            </a>
-        {% endfor %}
+        <div class="col-md-10 col-md-offset-1">
+            {% for image in images %}
+                <a href="{% url 'pyxchange:detail' image.slug %}"><img class="thumbnail animated flipInY" src="{{ image.img_thumbnail.url }}" title="{{ image.desc }}" /></a>
+            {% endfor %}
+        </div>
     </div>
+
+    <div class="row text-center">
+         <ul class="pagination">
+                <li> <a href="{% url 'pyxchange:page' %}">Page</a></li>
+            {% if images.has_previous %}
+                <li><a href="?page={{ images.previous_page_number }}">Prev</a></li>
+            {% endif %}
+            {% for page in images.paginator.page_range %}
+                <li class="{% if images.number == page  %}active{% endif %}"><a href="?page={{ page }}">{{ page }}</a></li>
+            {% endfor %}
+
+            {% if images.has_next %}
+                <li> <a href="?page={{ images.next_page_number }}">Next</a></li>
+            {% endif %}
+                <li> <a href="{% url 'pyxchange:all' %}">All</a></li>
+         </ul>
+    </div>
+</div>
 {% endblock %}

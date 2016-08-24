@@ -6,11 +6,12 @@ from django.db.models import F
 from .forms import ImageForm
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic import View
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Image
 from .forms import UserForm
 
-# Number of latest images (popular, uploaded, etc.)
+# Number of latest images (popular, uploaded, paginator etc.)
 IMAGE_COUNT = 12
 
 
@@ -45,6 +46,19 @@ def detail(request, slug):
 def show_popular(request):
     pop = Image.objects.order_by('-rev_count')[:IMAGE_COUNT]
     return render(request, 'pyxchange/popular.tpl', {'images': pop})
+
+
+def show_page(request):
+    images = Image.objects.order_by('-upl_date')
+    paginator = Paginator(images, IMAGE_COUNT)
+    page = request.GET.get('page')
+    try:
+        images = paginator.page(page)
+    except PageNotAnInteger:
+        images = paginator.page(1)
+    except EmptyPage:
+        images = paginator.page(paginator.num_pages)
+    return render(request, 'pyxchange/all.tpl', {'images': images})
 
 
 def show_all(request):

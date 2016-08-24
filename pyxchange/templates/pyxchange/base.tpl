@@ -68,7 +68,8 @@
                 </div>
             </div>
         </nav>
-            {% block body %}
-            {% endblock %}
+
+        {% block body %}
+        {% endblock %}
     </body>
 </html>
