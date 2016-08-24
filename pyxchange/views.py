@@ -49,6 +49,7 @@ def show_popular(request):
 
 
 def show_page(request):
+    state = 'page'
     images = Image.objects.order_by('-upl_date')
     paginator = Paginator(images, IMAGE_COUNT)
     page = request.GET.get('page')
@@ -58,12 +59,13 @@ def show_page(request):
         images = paginator.page(1)
     except EmptyPage:
         images = paginator.page(paginator.num_pages)
-    return render(request, 'pyxchange/all.tpl', {'images': images})
+    return render(request, 'pyxchange/all.tpl', {'images': images, 'state': state})
 
 
 def show_all(request):
+    state = 'all'
     images = Image.objects.order_by('-upl_date')
-    return render(request, 'pyxchange/all.tpl', {'images': images})
+    return render(request, 'pyxchange/all.tpl', {'images': images, 'state': state})
 
 
 def cabinet(request):

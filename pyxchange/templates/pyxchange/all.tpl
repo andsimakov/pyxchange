@@ -15,7 +15,6 @@
 
     <div class="row text-center">
          <ul class="pagination">
-                <li> <a href="{% url 'pyxchange:page' %}">Page</a></li>
             {% if images.has_previous %}
                 <li><a href="?page={{ images.previous_page_number }}">Prev</a></li>
             {% endif %}
@@ -26,7 +25,11 @@
             {% if images.has_next %}
                 <li> <a href="?page={{ images.next_page_number }}">Next</a></li>
             {% endif %}
-                <li> <a href="{% url 'pyxchange:all' %}">All</a></li>
+                {% if state == 'all' %}
+                    <li><a href="{% url 'pyxchange:page' %}">Show Paginated</a></li>
+                {% else %}
+                    <li><a href="{% url 'pyxchange:all' %}">Show All</a></li>
+                {% endif %}
          </ul>
     </div>
 </div>
