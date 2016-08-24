@@ -19,7 +19,7 @@ class Image(models.Model):
     def __str__(self):
         return '{} - {}'.format(self.slug, self.desc)
 
-    # Override the method to clean up a garbage upon an object deletion
+    # Overriding the method to clean up a garbage upon an object deletion
     def delete(self, *args, **kwargs):
         self.img.delete(save=False)
         super(Image, self).delete(*args, **kwargs)
