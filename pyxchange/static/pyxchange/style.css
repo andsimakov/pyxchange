@@ -4,7 +4,7 @@
 .white{color: #eee !important;}
 
 body{
-    background: #aaa url(images/background.png);
+    background: #aaa url(images/background.png) repeat center center fixed;
     color: #eee;
     font-family: 'Open Sans', sans-serif;
     overflow-x: hidden;
