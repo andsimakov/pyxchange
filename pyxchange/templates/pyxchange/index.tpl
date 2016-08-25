@@ -10,6 +10,9 @@
             <div class="col-md-4 col-md-offset-4 animated fadeIn">
                 <div class="panel panel-default">
                     <div class="panel-body">
+                        {% if error_message %}
+                            <p><b>{{ error_message }}</b></p>
+                        {% endif %}
                         <form class="form-horizontal" action="" role="form" method="post" enctype="multipart/form-data">
                             {% csrf_token %}
                             {% include 'pyxchange/form_template.tpl' %}
