@@ -25,11 +25,12 @@
             {% if images.has_next %}
                 <li> <a href="?page={{ images.next_page_number }}">Next</a></li>
             {% endif %}
-                {% if state == 'all' %}
-                    <li><a href="{% url 'pyxchange:page' %}">Show Paginated</a></li>
-                {% else %}
-                    <li><a href="{% url 'pyxchange:all' %}">Show All</a></li>
-                {% endif %}
+
+            {% if state == 'all' %}
+                <li><a href="{% url 'pyxchange:page' %}">Show Paginated</a></li>
+            {% else %}
+                <li><a href="{% url 'pyxchange:all' %}">Show All</a></li>
+            {% endif %}
          </ul>
     </div>
 </div>

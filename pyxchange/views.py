@@ -7,6 +7,7 @@ from .forms import ImageForm
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic import View
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.http import JsonResponse
 
 from .models import Image
 from .forms import UserForm
@@ -43,13 +44,21 @@ def detail(request, slug):
     return render(request, 'pyxchange/detail.tpl', {'image': image})
 
 
+def like(request, slug):
+    image = get_object_or_404(Image, slug=slug)
+    image.like_count = F('like_count') + 1
+    image.save()
+    image.refresh_from_db()
+    return render(request, 'pyxchange/detail.tpl', {'image': image})
+
+
 def show_popular(request):
     popular_set = Image.objects.order_by('-rev_count')[:IMAGE_COUNT]
     return render(request, 'pyxchange/popular.tpl', {'images': popular_set})
 
 
 def show_page(request):
-    state = 'page'
+    state = ''
     images = Image.objects.order_by('-upl_date')
     paginator = Paginator(images, IMAGE_COUNT)
     page = request.GET.get('page')

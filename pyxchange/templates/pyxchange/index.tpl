@@ -35,9 +35,7 @@
         <div class="col-md-10 col-md-offset-1">
             <h2>Recent Uploads</h2>
             {% for image in images %}
-                <a href="{% url 'pyxchange:detail' image.slug %}">
-                    <img class="thumbnail animated rotateInDownRight" src="{{ image.img_thumbnail.url }}" title="{{ image.desc }}" />
-                </a>
+                <a href="{% url 'pyxchange:detail' image.slug %}"><img class="thumbnail animated rotateInDownRight" src="{{ image.img_thumbnail.url }}" title="{{ image.desc }}" /></a>
             {% endfor %}
         </div>
     </div>

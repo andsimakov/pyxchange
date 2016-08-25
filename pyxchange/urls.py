@@ -13,5 +13,6 @@ urlpatterns = [
     url(r'^logout_user/$', views.logout_user, name='logout_user'),
     url(r'^user/$', views.cabinet, name='cabinet'),
     url(r'^(?P<slug>[\w]+)/$', views.detail, name='detail'),
+    url(r'^(?P<slug>[\w]+)/like/$', views.like, name='like'),
     url(r'^(?P<slug>[\w]+)/delete/$', views.delete, name='delete'),
 ]
