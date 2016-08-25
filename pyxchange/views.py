@@ -56,13 +56,13 @@ def like(request, slug):
 
 
 def show_popular(request):
-    # Popular images view
+    # Popular image view
     popular_set = Image.objects.order_by('-rev_count')[:IMAGE_COUNT]
     return render(request, 'pyxchange/popular.tpl', {'images': popular_set})
 
 
 def show_likes(request):
-    # Liked images view
+    # Liked image view
     like_set = Image.objects.order_by('-like_count')[:IMAGE_COUNT]
     return render(request, 'pyxchange/like.tpl', {'images': like_set})
 
@@ -96,7 +96,7 @@ def cabinet(request):
 
 
 def delete(request, slug):
-    # Delete image dummy view
+    # Delete image view
     image = Image.objects.get(slug=slug)
     image.delete()
     return redirect('pyxchange:cabinet')
