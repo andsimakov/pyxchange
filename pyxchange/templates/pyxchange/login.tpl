@@ -4,7 +4,7 @@
 {% block body %}
 <div class="container">
     <div class="row text-center">
-        <div class="col-md-4 col-md-offset-4 animated fadeIn">
+        <div class="col-md-4 col-md-offset-4 animated fadeInDown">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h3>Log In</h3>

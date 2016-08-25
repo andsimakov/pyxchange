@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row text-center">
         <div class="col-md-4 col-md-offset-4">
-            <div class="panel panel-default animated fadeIn">
+            <div class="panel panel-default animated fadeInUp">
                 <div class="panel-body">
                     <h3>Sign Up</h3>
                     {% if error_message %}

@@ -8,7 +8,7 @@
         <h2>All Images</h2>
         <div class="col-md-10 col-md-offset-1">
             {% for image in images %}
-                <a href="{% url 'pyxchange:detail' image.slug %}"><img class="thumbnail animated flipInY" src="{{ image.img_thumbnail.url }}" title="{{ image.desc }}" /></a>
+                <a href="{% url 'pyxchange:detail' image.slug %}"><img class="thumbnail animated fadeIn" src="{{ image.img_thumbnail.url }}" title="{{ image.desc }}" /></a>
             {% endfor %}
         </div>
     </div>

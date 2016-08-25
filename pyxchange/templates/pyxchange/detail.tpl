@@ -3,7 +3,7 @@
 
 {% block body %}
     <div style="text-align: center;">
-        <img class="img-thumbnail animated fadeIn" src="{{ image.img.url }}" width="600">
+        <a href="javascript:history.go(-1);"><img class="img-thumbnail animated fadeIn" src="{{ image.img.url }}" width="600" title="Go back"></a>
         <div class="image-container animated fadeIn">
             <table class="details">
                 <tr>
@@ -14,11 +14,11 @@
                     <td class="col2">{{ image.upl_date }}</td>
                 </tr>
                 <tr>
-                    <td class="col1 text-primary"><span class="glyphicon glyphicon-scale gi-2x"></span></td>
+                    <td class="col1 text-primary"><span class="glyphicon glyphicon-hdd gi-2x"></span></td>
                     <td class="col2">{{ image.img.size|filesizeformat }}</td>
                 </tr>
                 <tr>
-                    <td class="col1 text-primary"><span class="glyphicon glyphicon-fullscreen gi-2x"></span></td>
+                    <td class="col1 text-primary"><span class="glyphicon glyphicon-move gi-2x"></span></td>
                     <td class="col2">{{ image.img.width }}px (W) x {{ image.img.height }}px (H)</td>
                 </tr>
                 <tr>

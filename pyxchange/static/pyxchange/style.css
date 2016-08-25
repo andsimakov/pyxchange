@@ -1,25 +1,46 @@
+.red{color: crimson !important;}
+.yellow{color: coral !important;}
+.lightgray{color: #444 !important;}
+.white{color: #eee !important;}
+
 body{
-    background-color: #eee;
+    background: #aaa url(images/background.png);
+    color: #eee;
     font-family: 'Open Sans', sans-serif;
     overflow-x: hidden;
+    text-shadow: #777 0 1px 1px;
 }
 .navbar{
     border-radius: 0;
     font-size: 1.3em;
+    text-shadow: none;
+}
+.glyphicon{
+    text-shadow: none;
 }
 .navbar-brand{
     font-family: 'Baloo Da', cursive;
     font-size: 1.5em;
     font-weight: 700;
 }
+.panel{
+    background-color: #efefef;
+    box-shadow: #777 0 2px 3px;
+    color: #444;
+    text-shadow: none;
+}
 .trash{
     font-size: 1.2em;
     margin: .2em 0 -.1em;
 }
 .thumbnail{
-    border-radius: 5px;
+    background-color: #efefef;
+    border-radius: 3px;
+    box-shadow: #777 0 2px 3px;
+    color: #444;
     display: inline-block;
     margin: .3em .1em;
+    text-shadow: none;
 }
 .gi-2x{font-size: 1.5em;}
 .details{
@@ -28,6 +49,7 @@ body{
     margin: 0 auto;
     width: 50%;
 }
+  .details .glyphicon{color: #444;}
   .details td{padding: .2em .5em;}
   .details .col1 {
       text-align: right;

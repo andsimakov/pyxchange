@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>{% block title %}Pyxchange{% endblock %}</title>
         {% load staticfiles %}
-        <link rel="shortcut icon" type="image/png" href="{%  static 'favicon.png' %}"/>
+        <link rel="shortcut icon" type="image/png" href="{%  static 'pyxchange/images/favicon.png' %}"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Baloo+Da|Open+Sans:400,700" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -27,6 +27,13 @@
                 <!-- Items -->
                 <div class="collapse navbar-collapse" id="topNavBar">
                     <ul class="nav navbar-nav">
+                        <li class="{% block all_active %}{% endblock %}">
+                            <a href="{% url 'pyxchange:all' %}">
+                                <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> All
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav">
                         <li class="{% block popular_active %}{% endblock %}">
                             <a href="{% url 'pyxchange:popular' %}">
                                 <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Popular
@@ -34,9 +41,9 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav">
-                        <li class="{% block all_active %}{% endblock %}">
-                            <a href="{% url 'pyxchange:all' %}">
-                                <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> All
+                        <li class="{% block like_active %}{% endblock %}">
+                            <a href="{% url 'pyxchange:likes' %}">
+                                <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Like
                             </a>
                         </li>
                     </ul>
