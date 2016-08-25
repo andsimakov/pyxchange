@@ -2,10 +2,10 @@
 {% block title %}Pyxchange Sign Up{% endblock %}
 
 {% block body %}
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-12 col-md-6">
-            <div class="panel panel-default animated fadeInRight">
+<div class="container">
+    <div class="row text-center">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default animated fadeIn">
                 <div class="panel-body">
                     <h3>Sign Up</h3>
                     {% if error_message %}
@@ -15,7 +15,7 @@
                         {% csrf_token %}
                         {% include 'pyxchange/form_template.tpl' %}
                         <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
+                            <div class="col-md-4 col-md-offset-4">
                                 <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Sign Up</button>
                             </div>
                         </div>

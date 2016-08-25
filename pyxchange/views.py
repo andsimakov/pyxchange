@@ -44,8 +44,8 @@ def detail(request, slug):
 
 
 def show_popular(request):
-    pop = Image.objects.order_by('-rev_count')[:IMAGE_COUNT]
-    return render(request, 'pyxchange/popular.tpl', {'images': pop})
+    popular_set = Image.objects.order_by('-rev_count')[:IMAGE_COUNT]
+    return render(request, 'pyxchange/popular.tpl', {'images': popular_set})
 
 
 def show_page(request):
@@ -81,7 +81,7 @@ def delete(request, slug):
 
 class UserFormView(View):
     form_class = UserForm
-    template_name = 'pyxchange/register.tpl'
+    template_name = 'pyxchange/signup.tpl'
 
     def get(self, request):
         form = self.form_class(None)

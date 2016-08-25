@@ -2,9 +2,9 @@
 {% block title %}Log In{% endblock %}
 
 {% block body %}
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-12 col-md-6 animated fadeInRight">
+<div class="container">
+    <div class="row text-center">
+        <div class="col-md-4 col-md-offset-4 animated fadeIn">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h3>Log In</h3>
@@ -30,7 +30,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
+                            <div class="col-md-4 col-md-offset-4">
                                 <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Log In</button>
                             </div>
                         </div>
