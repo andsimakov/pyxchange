@@ -78,6 +78,7 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+# STATIC_ROOT = '/home/django/django-project/django-project/static'
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
