@@ -12,7 +12,7 @@ class Image(models.Model):
     img_thumbnail = ImageSpecField(source='',
                                    processors=[ResizeToFill(140, 140)],
                                    format='JPEG',
-                                   options={'quality': 75})
+                                   options={'quality': 85})
     desc = models.CharField('Title', max_length=500, help_text='Up to 500 char.')
     slug = models.SlugField(max_length=6, unique=True)
     upl_date = models.DateTimeField('Uploaded', auto_now_add=True)
