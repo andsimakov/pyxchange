@@ -3,11 +3,11 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-DEBUG = True
-ALLOWED_HOSTS = []
+# DEBUG = True
+# ALLOWED_HOSTS = []
 
-# DEBUG = False
-# ALLOWED_HOSTS = ['http://178.62.245.219/']
+DEBUG = False
+ALLOWED_HOSTS = ['178.62.242.226', 'pyxchange.andreysimakov.com']
 
 INSTALLED_APPS = [
     'pyxchange',
@@ -78,9 +78,7 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-# STATIC_ROOT = '/home/django/final/pyxchange/static/'
 STATIC_URL = '/static/'
 
-# MEDIA_ROOT = '/home/django/final/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

@@ -1,3 +1,5 @@
 .idea/
 __pycache__/
 _test_images/
+venv/
+final.sock

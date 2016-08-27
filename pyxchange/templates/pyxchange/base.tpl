@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="description" content="{% block title %}Pyxchange{% endblock %}" />
+  <meta name="keywords" content="" />
   <title>{% block title %}Pyxchange{% endblock %}</title>
   {% load staticfiles %}
   <link rel="shortcut icon" type="image/png" href="{% static 'pyxchange/images/favicon.png' %}"/>
