@@ -3,3 +3,4 @@ __pycache__/
 _test_images/
 venv/
 final.sock
+media/
