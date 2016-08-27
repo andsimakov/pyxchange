@@ -4,3 +4,4 @@ _test_images/
 venv/
 final.sock
 media/
+db.sqlite3
