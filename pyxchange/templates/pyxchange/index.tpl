@@ -4,7 +4,7 @@
 {% block body %}
   <div class="container">
     <div class="row text-center">
-      <h1>Image Gallery. Add Yours</h1>
+      <h1>The Image Gallery.<br class="visible-xs" /> Add Yours</h1>
       {% if user.is_authenticated %}
         <div class="col-md-4 col-md-offset-4 animated fadeIn">
           <div class="panel panel-default">
@@ -25,7 +25,7 @@
           </div>
         </div>
       {% else %}
-        <h3 class="lightgray"><span class="glyphicon glyphicon-eye-open white" aria-hidden="true"></span> incognito.
+        <h3 class="lightgray"><span class="glyphicon glyphicon-eye-open white" aria-hidden="true"></span> incognito.<br class="visible-xs" />
           <span class="glyphicon glyphicon-pencil white" aria-hidden="true"></span> or <span
                   class="glyphicon glyphicon-off white" aria-hidden="true"></span> to <span
                   class="glyphicon glyphicon-upload white" aria-hidden="true"></span> and <span
