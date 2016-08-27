@@ -4,7 +4,7 @@
 {% block body %}
   <div class="container">
     <div class="row text-center">
-      <h1>The Image Gallery. Add Yours</h1>
+      <h1>Image Gallery. Add Yours</h1>
       {% if user.is_authenticated %}
         <div class="col-md-4 col-md-offset-4 animated fadeIn">
           <div class="panel panel-default">
