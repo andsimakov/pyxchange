@@ -3,11 +3,8 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# DEBUG = True
-# ALLOWED_HOSTS = []
-
-DEBUG = False
-ALLOWED_HOSTS = ['178.62.242.226', 'pyxchange.andreysimakov.com']
+DEBUG = True
+ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'pyxchange',
@@ -82,3 +79,9 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+# Override settings for the production server
+try:
+    from settings_srv import *
+except ImportError:
+    pass

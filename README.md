@@ -14,7 +14,7 @@ Upload form is unavailable for non-authorised users. The only may review all the
 It has very simple mechanism and refreshes every time you visit an individual image page or refresh it.
 
 "All" page includes all image flow sorted in the descending order by the uploading date.
-You may also switch to paginated view in case of numerous images. 
+You may also switch to a paginated view in case of numerous images. 
 
 "Popular" page demonstrates 12 most frequently reviewed images sorted in the descending order by the view count.
 

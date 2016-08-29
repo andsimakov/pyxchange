@@ -5,3 +5,4 @@ venv/
 final.sock
 media/
 db.sqlite3
+settings_srv.py
