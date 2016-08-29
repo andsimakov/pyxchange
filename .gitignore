@@ -4,5 +4,7 @@ _test_images/
 venv/
 final.sock
 media/
+*.pyc
+*.pye
 db.sqlite3
 settings_srv.py
