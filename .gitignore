@@ -7,4 +7,4 @@ media/
 *.pyc
 *.pye
 db.sqlite3
-settings_srv.py
+settings_prod.py

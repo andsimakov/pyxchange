@@ -82,6 +82,6 @@ MEDIA_URL = '/media/'
 
 # Override settings for the production server
 try:
-    from settings_srv import *
+    from settings_prod import *
 except ImportError:
     pass
