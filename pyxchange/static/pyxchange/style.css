@@ -15,7 +15,6 @@ body{
     font-size: 1.3em;
     text-shadow: none;
 }
-.fa{text-shadow: none;}
 .navbar-brand{
     font-family: 'Baloo Da', cursive;
     font-size: 1.5em;
@@ -47,10 +46,13 @@ body{
     margin: 0 auto;
     width: 50%;
 }
-  .details .fa{color: #444;}
+  .details .fa{
+      color: #444;
+  }
   .details td{padding: .2em .5em;}
   .details .col1 {
-      text-align: right;
+      text-align: center;
+      text-shadow: none;
       width: 40%;
   }
   .details .col2 {text-align: left;}
