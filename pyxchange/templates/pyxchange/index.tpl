@@ -17,7 +17,7 @@
                 {% include 'pyxchange/form_template.tpl' %}
                 <div class="col-md-4 col-md-offset-4">
                   <button type="submit" class="btn btn-success">
-                    <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload
+                    <i class="fa fa-upload" aria-hidden="true"></i> Upload
                   </button>
                 </div>
               </form>
@@ -25,11 +25,11 @@
           </div>
         </div>
       {% else %}
-        <h3 class="lightgray"><span class="glyphicon glyphicon-eye-open white" aria-hidden="true"></span> incognito.<br class="visible-xs" />
-          <span class="glyphicon glyphicon-pencil white" aria-hidden="true"></span> or <span
-                  class="glyphicon glyphicon-off white" aria-hidden="true"></span> to <span
-                  class="glyphicon glyphicon-upload white" aria-hidden="true"></span> and <span
-                  class="glyphicon glyphicon-heart white" aria-hidden="true"></span></h3>
+        <h3 class="lightgray"><i class="fa fa-eye white" aria-hidden="true"></i> incognito.<br class="visible-xs" />
+          <i class="fa fa-pencil-square-o white" aria-hidden="true"></i> or
+          <i class="fa fa-sign-in white" aria-hidden="true"></i> to
+          <i class="fa fa-upload white" aria-hidden="true"></i> and
+          <i class="fa fa-heart white" aria-hidden="true"></i></h3>
       {% endif %}
     </div>
 

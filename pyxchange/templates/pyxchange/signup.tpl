@@ -16,8 +16,7 @@
               {% include 'pyxchange/form_template.tpl' %}
               <div class="form-group">
                 <div class="col-md-4 col-md-offset-4">
-                  <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-pencil"
-                                                                      aria-hidden="true"></span> Sign Up
+                  <button type="submit" class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up
                   </button>
                 </div>
               </div>

@@ -14,7 +14,7 @@
                                                                      title="{{ image.desc }}"/></a>
             </div>
             <div class="trash text-center">
-              <span class="glyphicon glyphicon-star yellow" aria-hidden="true"></span> {{ image.rev_count }}
+              <i class="fa fa-star yellow" aria-hidden="true"></i> {{ image.rev_count }}
             </div>
           </div>
         {% endfor %}

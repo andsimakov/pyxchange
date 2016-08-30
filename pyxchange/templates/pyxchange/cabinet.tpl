@@ -15,8 +15,7 @@
                                                                        title="{{ image.desc }}"/></a>
               </div>
               <div class="trash text-center">
-                <a href="{% url 'pyxchange:delete' image.slug %}"><b class="text-danger"><span
-                        class="glyphicon glyphicon-trash" aria-hidden="true"></span></b></a>
+                <a href="{% url 'pyxchange:delete' image.slug %}"><i class="fa fa-trash-o text-danger" aria-hidden="true"></i></a>
               </div>
             </div>
           {% endfor %}

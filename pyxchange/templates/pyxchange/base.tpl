@@ -14,6 +14,7 @@
   <link href="https://fonts.googleapis.com/css?family=Baloo+Da|Open+Sans:400,700" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'pyxchange/style.css' %}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'pyxchange/font-awesome.css' %}"/>
   <link rel="stylesheet" type="text/css" href="{% static 'pyxchange/animate.css' %}"/>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
@@ -34,45 +35,45 @@
       <ul class="nav navbar-nav">
         <li class="{% block all_active %}{% endblock %}">
           <a href="{% url 'pyxchange:all' %}">
-            <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> All
+            <i class="fa fa-picture-o" aria-hidden="true"></i> All
           </a>
         </li>
       </ul>
       <ul class="nav navbar-nav">
         <li class="{% block popular_active %}{% endblock %}">
           <a href="{% url 'pyxchange:popular' %}">
-            <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Popular
+            <i class="fa fa-star" aria-hidden="true"></i> Popular
           </a>
         </li>
       </ul>
       <ul class="nav navbar-nav">
         <li class="{% block like_active %}{% endblock %}">
           <a href="{% url 'pyxchange:likes' %}">
-            <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Like
+            <i class="fa fa-heart" aria-hidden="true"></i> Like
           </a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {% if user.is_authenticated %}
-          <li class="{% block cabinet_active %}{% endblock %}">
+          <li class="active">
             <a href="{% url 'pyxchange:cabinet' %}">
-              <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ user }}
+              <i class="fa fa-male" aria-hidden="true"></i> {{ user }}
             </a>
           </li>
           <li>
             <a href="{% url 'pyxchange:logout_user' %}">
-              <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout
+              <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
             </a>
           </li>
         {% else %}
           <li>
             <a href="{% url 'pyxchange:login_user' %}">
-              <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Log In
+              <i class="fa fa-sign-in" aria-hidden="true"></i> Log In
             </a>
           </li>
           <li>
             <a href="{% url 'pyxchange:register' %}">
-              <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Sign Up
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up
             </a>
           </li>
         {% endif %}

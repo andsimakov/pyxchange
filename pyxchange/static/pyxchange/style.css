@@ -15,9 +15,7 @@ body{
     font-size: 1.3em;
     text-shadow: none;
 }
-.glyphicon{
-    text-shadow: none;
-}
+.fa{text-shadow: none;}
 .navbar-brand{
     font-family: 'Baloo Da', cursive;
     font-size: 1.5em;
@@ -30,8 +28,8 @@ body{
     text-shadow: none;
 }
 .trash{
-    font-size: 1.2em;
-    margin: .2em 0 -.1em;
+    font-size: 1.3em;
+    margin: .1em 0 -.1em;
 }
 .thumbnail{
     background-color: #efefef;
@@ -42,14 +40,14 @@ body{
     margin: .3em .1em;
     text-shadow: none;
 }
-.gi-2x{font-size: 1.5em;}
+.fa-2x{font-size: 1.4em !important;}
 .details{
     display: inline-table;
     font-size: 1.2em;
     margin: 0 auto;
     width: 50%;
 }
-  .details .glyphicon{color: #444;}
+  .details .fa{color: #444;}
   .details td{padding: .2em .5em;}
   .details .col1 {
       text-align: right;

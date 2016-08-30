@@ -14,7 +14,7 @@
                                                                      title="{{ image.desc }}"/></a>
             </div>
             <div class="trash text-center">
-              <span class="glyphicon glyphicon-heart red" aria-hidden="true"></span> {{ image.like_count }}
+              <i class="fa fa-heart red" aria-hidden="true"></i> {{ image.like_count }}
             </div>
           </div>
         {% endfor %}

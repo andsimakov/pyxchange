@@ -28,8 +28,7 @@
               </div>
               <div class="form-group">
                 <div class="col-md-4 col-md-offset-4">
-                  <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-off"
-                                                                      aria-hidden="true"></span> Log In
+                  <button type="submit" class="btn btn-success"><i class="fa fa-sign-in" aria-hidden="true"></i></span> Log In
                   </button>
                 </div>
               </div>
