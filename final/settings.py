@@ -92,7 +92,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # Override settings for the production server
-# try:
-#     from .settings_prod import *
-# except ImportError as e:
-#     pass
+try:
+    from .settings_prod import *
+except ImportError as e:
+    pass
