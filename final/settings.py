@@ -48,10 +48,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'final.wsgi.application'
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    # }
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'django',
@@ -89,7 +85,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # Override settings for the production server
-try:
-    from .settings_prod import *
-except ImportError as e:
-    pass
+# try:
+#     from .settings_prod import *
+# except ImportError as e:
+#     pass
