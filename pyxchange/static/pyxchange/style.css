@@ -13,7 +13,7 @@ body{
     color: #eee;
     font-family: 'Open Sans', sans-serif;
     overflow-x: hidden;
-    text-shadow: #777 0 1px 1px;
+    text-shadow: #444 0 1px 1px;
 }
 .navbar{
     border-radius: 0;
@@ -34,6 +34,17 @@ body{
     color: #444;
     text-shadow: none;
 }
+.pagination{}
+  .pagination>li>a,
+  .pagination>li>a:hover{
+    color: #444;
+    text-shadow: none;
+  }
+  .pagination>.active>a,
+  .pagination>.active>a:hover{
+    background-color: #444;
+    border-color: #444;
+  }
 .trash{
     font-size: 1.3em;
     margin: .1em 0 -.1em;

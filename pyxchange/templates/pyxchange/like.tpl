@@ -6,7 +6,7 @@
   <div class="container">
     <div class="row text-center">
       <div class="col-md-10 col-md-offset-1">
-        <h2>Most Popular Images</h2>
+        <h2>Most Liked Images</h2>
         {% for image in images %}
           <div class="thumbnail animated fadeIn">
             <div>

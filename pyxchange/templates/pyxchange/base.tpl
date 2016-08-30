@@ -48,7 +48,7 @@
       </ul>
       <ul class="nav navbar-nav">
         <li class="{% block like_active %}{% endblock %}">
-          <a href="{% url 'pyxchange:likes' %}">
+          <a href="{% url 'pyxchange:like' %}">
             <i class="fa fa-heart" aria-hidden="true"></i> Like
           </a>
         </li>

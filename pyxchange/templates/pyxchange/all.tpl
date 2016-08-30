@@ -29,9 +29,9 @@
         {% endif %}
 
         {% if state == 'all' %}
-          <li><a href="{% url 'pyxchange:page' %}">Show Paginated</a></li>
+          <li><a href="{% url 'pyxchange:page' %}"><i class="fa fa-map" aria-hidden="true"></i> Show Paginated</a></li>
         {% else %}
-          <li><a href="{% url 'pyxchange:all' %}">Show All</a></li>
+          <li><a href="{% url 'pyxchange:all' %}"><i class="fa fa-th" aria-hidden="true"></i> Show All</a></li>
         {% endif %}
       </ul>
     </div>
