@@ -2,6 +2,11 @@
 .yellow{color: coral !important;}
 .lightgray{color: #444 !important;}
 .white{color: #eee !important;}
+.tlr{border-top-left-radius: 3px;}
+.blr{border-bottom-left-radius: 3px;}
+.trr{border-top-right-radius: 3px;}
+.brr{border-bottom-right-radius: 3px;}
+.nopadding{padding: 0;}
 
 body{
     background: #aaa url(images/background.png) repeat center center fixed;
@@ -19,6 +24,9 @@ body{
     font-family: 'Baloo Da', cursive;
     font-size: 1.5em;
     font-weight: 700;
+}
+.btn{
+    box-shadow: #777 0 2px 3px;
 }
 .panel{
     background-color: #efefef;
@@ -56,3 +64,21 @@ body{
       width: 40%;
   }
   .details .col2 {text-align: left;}
+.like{margin: 1.5em 0;}
+
+.tbl-detail{
+    box-shadow: #777 0 2px 3px;
+    margin-top: .5em;
+    padding: 0;
+}
+    .tbl-detail .headr{
+        background-color: #777;
+        padding: .3em 0;
+        text-shadow: #333 0 1px 1px;
+    }
+    .tbl-detail .tr{
+        background-color: #ddd;
+        color: #333;
+        padding: .3em 0;
+        text-shadow: none;
+    }
