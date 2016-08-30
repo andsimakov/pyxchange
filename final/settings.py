@@ -3,11 +3,8 @@ from .secret import *
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# DEBUG = True
-# ALLOWED_HOSTS = []
-
-DEBUG = False
-ALLOWED_HOSTS = ['178.62.242.226', 'pyxchange.andreysimakov.com']
+DEBUG = True
+ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'pyxchange',
@@ -52,12 +49,8 @@ WSGI_APPLICATION = 'final.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'final',
-        'USER': 'final',
-        'PASSWORD': 'nO3E4X1cds',
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -88,7 +81,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # Override settings for the production server
-# try:
-#     from .settings_prod import *
-# except ImportError as e:
-#     pass
+try:
+    from .settings_prod import *
+except ImportError as e:
+    pass
