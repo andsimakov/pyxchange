@@ -13,7 +13,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Baloo+Da|Open+Sans:400,700" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="{% static 'pyxchange/style.css' %}"/>
+  <link rel="stylesheet" type="text/css" href="{% static '{{ STATIC_URL }}style.css' %}"/>
   <link rel="stylesheet" type="text/css" href="{% static 'pyxchange/font-awesome.css' %}"/>
   <link rel="stylesheet" type="text/css" href="{% static 'pyxchange/animate.css' %}"/>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
