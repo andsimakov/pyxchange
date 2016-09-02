@@ -8,4 +8,5 @@ media/
 *.pye
 db.sqlite3
 settings_prod.py
+settings_prod-flat.py
 secret.py
